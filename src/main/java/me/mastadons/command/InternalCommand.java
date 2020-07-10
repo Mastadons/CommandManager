@@ -22,7 +22,7 @@ public class InternalCommand extends Command {
 	@Override
 	public boolean execute(CommandSender sender, String label, String[] arguments) {
 		if (arguments.length > 0) {
-			for (CommandListener sublistener : listener.getSubCommandListeners()) 
+			for (CommandListener sublistener : listener.getSublisteners()) 
 				if (sublistener.hasName(arguments[0]))
 					return new InternalCommand(sublistener).execute(sender, label, Arrays.copyOfRange(arguments, 1, arguments.length));
 		}

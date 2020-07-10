@@ -28,7 +28,7 @@ public abstract class BasicCommandListener implements CommandListener {
 
 	public void addSubCommandListener(CommandListener listener) {
 		if (listener.equals(this)) return;
-		if (listener.getSubCommandListeners().contains(this)) return;
+		if (listener.getSublisteners().contains(this)) return;
 		sublisteners.add(listener);
 	}
 

@@ -2,7 +2,7 @@
   	<modelVersion>4.0.0</modelVersion>
   	<groupId>me.mastadons</groupId>
   	<artifactId>command</artifactId>
-  	<version>0.0.1-SNAPSHOT</version>
+  	<version>0.0.1</version>
   	<name>CommandManager</name>
   	<description>A simple and intuitive api for registering and using commands for Spigot Minecraft Servers.</description>
   	<build>
@@ -19,7 +19,8 @@
   	<distributionManagement>
         <repository>
             <id>internal</id>
-            <url>file://${project.build.directory}/maven-repository</url>
+            <url>file:///Users/MastaNicky/Desktop/personal-maven-repo</url>
+            <!-- IF ABOVE DOESN'T WORK, USE THIS AND COPY/PASTE<url>file://${project.build.directory}/maven-repository</url>-->
         </repository>
     </distributionManagement>
   	<dependencies>

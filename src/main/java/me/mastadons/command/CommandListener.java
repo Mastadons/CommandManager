@@ -84,7 +84,7 @@ public interface CommandListener {
 	 * Subcommands can be called in-game through /<command> <subcommand> <subcommand....>
 	 * @return a list of CommandListener
 	 */
-	public List<CommandListener> getSubCommandListeners();
+	public List<CommandListener> getSublisteners();
 	
 	/**
 	 * Calculates all of the valid methods annotated with CommandHandler inside of this CommandListener instance

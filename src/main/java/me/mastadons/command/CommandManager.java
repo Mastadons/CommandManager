@@ -23,7 +23,7 @@ public class CommandManager {
 	
 	private static Map<Plugin, List<InternalCommand>> commands = new HashMap<>();
 	
-	/**
+	/**  
 	 * Will register a command so that it can be used on the server.
 	 * @param plugin The plugin that the command should be registered under
 	 * @param listener The listener of the command to register
@@ -65,9 +65,12 @@ public class CommandManager {
 	 * @throws IllegalStateException The CommandMap could not be found, something on the server is foreign.
 	 */
 	private static CommandMap getCommandMap() throws IllegalStateException {
-		try {
-			Field commandMapField = Bukkit.getServer().getClass().getField("commandMap");
-			return (CommandMap) commandMapField.get(Bukkit.getServer());
+		try {	
+			Field commandMapField = Bukkit.getServer().getClass().getDeclaredField("commandMap");
+			commandMapField.setAccessible(true);
+			CommandMap commandMap = (CommandMap) commandMapField.get(Bukkit.getServer());
+			commandMapField.setAccessible(false);
+			return commandMap;
 		} catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e) {
 			throw new IllegalStateException(e);
 		}
