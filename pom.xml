@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  	<modelVersion>4.0.0</modelVersion>
+  	<groupId>me.mastadons</groupId>
+  	<artifactId>command</artifactId>
+  	<version>0.0.1-SNAPSHOT</version>
+  	<name>CommandManager</name>
+  	<description>A simple and intuitive api for registering and using commands for Spigot Minecraft Servers.</description>
+  	<build>
+	    <plugins>
+			<plugin>
+	        	<artifactId>maven-compiler-plugin</artifactId>
+	        	<version>3.8.0</version>
+	        	<configuration>
+	          		<release>13</release>
+	        	</configuration>
+	      	</plugin>
+	    </plugins>
+  	</build>
+  	<distributionManagement>
+        <repository>
+            <id>internal</id>
+            <url>file://${project.build.directory}/maven-repository</url>
+        </repository>
+    </distributionManagement>
+  	<dependencies>
+ 		<dependency>
+			<groupId>org.spigotmc</groupId>
+			<artifactId>spigot</artifactId>
+			<version>1.16.1-R0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.4</version>
+		</dependency>
+	</dependencies>
+</project>
