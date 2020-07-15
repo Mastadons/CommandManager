@@ -3,8 +3,10 @@ package me.mastadons.command;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
+import me.mastadons.command.exception.SyntaxException;
 import me.mastadons.command.flag.CommandFlagList;
 import me.mastadons.command.flag.CommandFlagParser;
 
@@ -49,11 +51,14 @@ public class CommandMethod {
 	public boolean execute(CommandSender sender, String[] arguments) {
 		if (!canSendCommand(sender)) return false;
 		try {
-			if (method.getParameterTypes()[0] == CommandFlagList.class) {
+			if (method.getParameterTypes()[1] == CommandFlagList.class) {
 				method.invoke(listener, sender, CommandFlagParser.getCommandFlags(String.join(" ", arguments)));
 			}
 			else method.invoke(listener, sender, arguments);
 			return true;
+		} catch (SyntaxException e) {
+			sender.sendMessage(ChatColor.RED + "Incorrect Syntax. Please use: " + listener.getUsageMessage());
+			return false;
 		} catch (Throwable e) {
 			if (e instanceof InvocationTargetException) e = ((InvocationTargetException) e).getTargetException();
 			listener.onCommandException(sender, arguments, e);
