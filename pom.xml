@@ -2,7 +2,7 @@
   	<modelVersion>4.0.0</modelVersion>
   	<groupId>me.mastadons</groupId>
   	<artifactId>command</artifactId>
-  	<version>0.0.2</version>
+  	<version>0.0.3</version>
   	<name>CommandManager</name>
   	<description>A simple and intuitive api for registering and using commands for Spigot Minecraft Servers.</description>
   	<build>
@@ -11,7 +11,7 @@
 	        	<artifactId>maven-compiler-plugin</artifactId>
 	        	<version>3.8.0</version>
 	        	<configuration>
-	          		<release>13</release>
+	          		<release>11</release>
 	        	</configuration>
 	      	</plugin>
 	    </plugins>
